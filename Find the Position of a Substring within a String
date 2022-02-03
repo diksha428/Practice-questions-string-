@@ -1,0 +1,57 @@
+# Practice-questions-string-
+
+Example 1:
+Input: str1 = "dikshajoshi"
+       str2 = “joshi”
+Output: 6
+
+code-
+class Main {
+  public static void main(String[] args) {
+    String text = "dikshajoshi";
+    String pattern = "joshi";
+ 
+    int foundIdx = text.indexOf(pattern);
+ 
+    System.out.println("The substring starts from the index: "+foundIdx);
+  }
+ }
+
+Time Complexity--O(N)
+
+
+2nd Method---
+
+class Main {
+  public static int foundPattern(String text, String pattern) {
+    int N = text.length();
+    int M = pattern.length();
+
+    for (int i = 0; i < N; i++) {
+      int temp = i;
+      int j = 0;
+      for (j = 0; j < M; j++) {
+        if (text.charAt(temp) != pattern.charAt(j)) {
+          break;
+        }
+        temp++;
+      }
+      if (j == M) {
+        return i;
+      }
+    }
+
+    return -1;
+  }
+  public static void main(String[] args) throws java.lang.Exception {
+    String text = "dikshajoshi";
+    String pattern = "joshi";
+
+    int foundIdx = foundPattern(text, pattern);
+
+    System.out.println("The substring starts from the index: "+foundIdx);
+  }
+}
+
+
+Time Complexity---O(N^2)
